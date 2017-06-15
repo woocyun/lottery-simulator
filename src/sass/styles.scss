@@ -1,0 +1,23 @@
+@charset 'UTF-8';
+
+@import
+  'abstracts/variables',
+  'abstracts/functions',
+  'abstracts/mixins';
+
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+@import
+  'base/base',
+  'base/fonts',
+  'base/typography',
+  'base/forms',
+  'base/helpers';
+
+@import
+  'layout/client',
+  'layout/header',
+  'layout/footer';
+
+@import
+  'pages/home';
