@@ -6,6 +6,7 @@ import RootComponent from './root.component';
 import SimulatorModule from './simulator/simulator.module';
 import createLogger from 'redux-logger';
 import { default as DevTools, runDevTools } from './devTools';
+import { createSampleData } from '../../config/sampleData';
 
 const RootModule = angular
   .module('root', [
@@ -20,7 +21,8 @@ if (process.env.NODE_ENV === 'development') {
       $ngReduxProvider.createStoreWith(rootReducer, []);
       $ngReduxProvider.createStoreWith(rootReducer, [ createLogger() ], [ DevTools.instrument() ]);
     })
-    .run(runDevTools);
+    .run(runDevTools)
+    .run(createSampleData);
 } else {
   RootModule
     .config(/*@ngInject*/ ($ngReduxProvider) => {
