@@ -1,14 +1,19 @@
 <div id="client-ui">
-  <header id="client-header">
-    {{ $ctrl.activeLottery.name }}
+  <header>
+    <div class="app-header">
+      Lottery Simulator
+    </div>
+    <lottery-header
+      active-lottery="$ctrl.activeLottery"
+      >
+    </lottery-header>
   </header>
-
-  <div id="client-body">
+  <nav>
     <lottery-list
       lotteries="$ctrl.lotteries"
       active-lottery="$ctrl.activeLottery"
       on-lottery-selected="$ctrl.lotterySelected($event);"
       >
     </lottery-list>
-  </div>
+  </nav>
 </div>
