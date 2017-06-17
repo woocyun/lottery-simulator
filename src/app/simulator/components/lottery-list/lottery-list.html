@@ -1,5 +1,8 @@
 <ul>
-  <div ng-repeat="lottery in $ctrl.lotteries">
+  <lottery-item
+    ng-repeat="lottery in $ctrl.lotteries"
+    lottery="lottery"
+    active-lottery="$ctrl.activeLottery">
     {{ lottery.name }}
-  </div>
+  </lottery-item>
 </ul>

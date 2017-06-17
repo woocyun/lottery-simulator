@@ -3,12 +3,12 @@ import template from './lottery-list.html';
 const LotteryListComponent = {
   bindings: {
     lotteries: '<',
-    active: '<'
+    activeLottery: '<'
   },
   templateUrl: template,
   controller: class LotteryListController {
     constructor() {
-      
+
     }
   }
 };
