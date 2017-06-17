@@ -1,12 +1,13 @@
 <div id="client-ui">
   <header id="client-header">
-    Header
+    {{ $ctrl.activeLottery.name }}
   </header>
 
   <div id="client-body">
     <lottery-list
       lotteries="$ctrl.lotteries"
       active-lottery="$ctrl.activeLottery"
+      on-lottery-selected="$ctrl.lotterySelected($event);"
       >
     </lottery-list>
   </div>

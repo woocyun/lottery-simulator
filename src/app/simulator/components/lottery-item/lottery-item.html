@@ -1,6 +1,8 @@
 <li
   ng-class="{ active: $ctrl.lottery.name === $ctrl.activeLottery.name }">
-  <a href>
+  <a
+    href
+    ng-click="$ctrl.onLotterySelected({ $event: $ctrl.lottery })">
     {{ $ctrl.lottery.name }}
   </a>
 </div>

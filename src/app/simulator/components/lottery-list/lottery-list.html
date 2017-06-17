@@ -2,7 +2,8 @@
   <lottery-item
     ng-repeat="lottery in $ctrl.lotteries"
     lottery="lottery"
-    active-lottery="$ctrl.activeLottery">
+    active-lottery="$ctrl.activeLottery"
+    on-lottery-selected="$ctrl.onLotterySelected($locals)">
     {{ lottery.name }}
   </lottery-item>
 </ul>

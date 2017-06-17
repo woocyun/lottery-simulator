@@ -3,6 +3,7 @@ import {
   getAllLotteries,
   getCurrentLottery
 } from '../../shared/lotteries/lotteries.selectors';
+import { selectLottery } from '../../shared/lotteries/lotteries.actions';
 
 const SimulatorPageComponent = {
   bindings: {},
@@ -23,6 +24,10 @@ const SimulatorPageComponent = {
         lotteries: getAllLotteries(state),
         activeLottery: getCurrentLottery(state)
       };
+    }
+
+    lotterySelected(lottery) {
+      this.$ngRedux.dispatch(selectLottery(lottery));
     }
   }
 };
