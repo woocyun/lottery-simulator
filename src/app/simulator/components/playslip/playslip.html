@@ -1,0 +1,22 @@
+<div class="playslip">
+  <form name="playslip">
+    <div>
+      Pick {{ $ctrl.activeLottery.common.picks }} numbers:
+      <span ng-repeat="number in $ctrl.commonNumbers">
+        {{ number }}
+        <input type="checkbox">
+      </span>
+    </div>
+
+    <div>
+      Pick
+      {{ $ctrl.activeLottery.special.picks }}
+      {{ $ctrl.activeLottery.special.alias }}
+      {{ $ctrl.activeLottery.special.picks.length > 1 ? 'numbers' : 'number' }}:
+      <span ng-repeat="number in $ctrl.specialNumbers">
+        {{ number }}
+        <input type="checkbox">
+      </span>
+    </div>
+  </form>
+</div>

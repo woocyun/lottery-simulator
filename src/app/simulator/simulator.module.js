@@ -2,6 +2,7 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import uiBootstrap from 'angular-ui-bootstrap';
 
+import UtilService from './shared/utilities/util.js';
 import SimulatorPageComponent from './containers/simulator-page/simulator-page.component';
 import LotteryHeaderComponent from './components/lottery-header/lottery-header.component';
 import LotteryListComponent from './components/lottery-list/lottery-list.component';
@@ -20,6 +21,7 @@ const SimulatorModule = angular
         component: 'simulatorPage'
       });
   })
+  .service('UtilService', UtilService)
   .component('simulatorPage', SimulatorPageComponent)
   .component('lotteryHeader', LotteryHeaderComponent)
   .component('lotteryList', LotteryListComponent)

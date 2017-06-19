@@ -69,7 +69,8 @@ export /*@ngInject*/ function createSampleData($ngRedux) {
       ],
       "special": {
         "picks": 1,
-        "qty": 15
+        "qty": 15,
+        "alias": "MegaBall"
       },
       "jackpot": 101000000
     }
@@ -140,7 +141,8 @@ export /*@ngInject*/ function createSampleData($ngRedux) {
       ],
       "special": {
         "picks": 1,
-        "qty": 26
+        "qty": 26,
+        "alias": "PowerBall"
       },
       "jackpot": 40000000
     }
