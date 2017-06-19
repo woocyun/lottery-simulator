@@ -10,8 +10,9 @@ const SimulatorPageComponent = {
   templateUrl: template,
   controller: class SimulatorPageController {
     /* @ngInject */
-    constructor($ngRedux) {
+    constructor($ngRedux, $uibModal) {
       this.$ngRedux = $ngRedux;
+      this.$uibModal = $uibModal;
       this.unsubscribe = $ngRedux.connect(this.mapStateToThis, {})(this);
     }
 
@@ -28,6 +29,14 @@ const SimulatorPageComponent = {
 
     lotterySelected(lottery) {
       this.$ngRedux.dispatch(selectLottery(lottery));
+    }
+
+    openPlayslip() {
+      this.$uibModal
+        .open({
+          component: 'playslip',
+          resolve: { activeLottery: this.activeLottery }
+        });
     }
   }
 };

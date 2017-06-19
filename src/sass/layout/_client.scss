@@ -39,6 +39,11 @@ nav {
   width: 13.75rem;
 }
 
+main {
+  flex: 1;
+  margin-top: 52px;
+}
+
 #client-body {
   &:not(.onboarding):before {
     position: absolute;
