@@ -1,0 +1,12 @@
+.line-item {
+  margin-left: 20px;
+  .common {
+    margin-right: 30px;
+    .number {
+      margin-right: 10px;
+    }
+  }
+  .number {
+    font-size: 30px;
+  }
+}

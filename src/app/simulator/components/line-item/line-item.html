@@ -1,0 +1,16 @@
+<div class="line-item">
+  <span class="common">
+    <span
+      class="number"
+      ng-repeat="number in $ctrl.line.common">
+      {{ number | prependZero }}
+    </span>
+  </span>
+  <span class="special">
+    <span
+      class="number"
+      ng-repeat="number in $ctrl.line.special">
+      {{ number | prependZero }}
+    </span>
+  </span>
+</tr>

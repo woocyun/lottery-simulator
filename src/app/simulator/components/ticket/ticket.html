@@ -1,8 +1,8 @@
 <div class="ticket">
-  <div ng-repeat="pick in $ctrl.picks">
-    {{ pick.common }}
-    {{ pick.special }}
-  </div>
+  <line-list
+    lines="$ctrl.picks"
+    >
+  </line-list>
   <toggleable-line-form
     active-lottery="$ctrl.activeLottery"
     common-choices="$ctrl.commonChoices"
