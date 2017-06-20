@@ -20,7 +20,6 @@ if (process.env.NODE_ENV === 'development') {
     .config(/*@ngInject*/ ($ngReduxProvider) => {
       $ngReduxProvider.createStoreWith(rootReducer, [ createLogger() ], [ DevTools.instrument() ]);
     })
-    .run(runDevTools)
     .run(createSampleData);
 } else {
   RootModule
