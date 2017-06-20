@@ -20,7 +20,10 @@
   'layout/footer';
 
 @import
-  'components/lottery_header';
+  'components/lottery_header',
+  'components/ticket',
+  'components/toggleable_line_form',
+  'components/line_form';
 
 @import
   'pages/home';

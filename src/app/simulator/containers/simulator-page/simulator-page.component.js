@@ -31,12 +31,17 @@ const SimulatorPageComponent = {
       this.$ngRedux.dispatch(selectLottery(lottery));
     }
 
-    openPlayslip() {
-      this.$uibModal
-        .open({
-          component: 'playslip',
-          resolve: { activeLottery: this.activeLottery }
-        });
+    lineAdded(picks) {
+      const commonPicks = extractNumbersFromChoices(picks.commonChoices);
+      const specialPicks = extractNumbersFromChoices(picks.specialChoices);
+
+      console.log(commonPicks, specialPicks);
+
+      function extractNumbersFromChoices(choices) {
+        return choices
+          .filter(choice => choice.checked)
+          .map(choice => choice.number);
+      }
     }
   }
 };

@@ -1,0 +1,43 @@
+<div class="line-form">
+  <div class="common-numbers">
+    <p class="title">
+      Pick {{ $ctrl.activeLottery.common.picks }} numbers:
+    </p>
+    <span ng-repeat="choice in $ctrl.commonChoices">
+      <label>{{ choice.number }}</label>
+      <input
+        type="checkbox"
+        ng-model="choice.checked"
+        ng-disabled="!choice.checked && ($ctrl.countCheckedCommon() === $ctrl.activeLottery.common.picks)"
+        >
+    </span>
+  </div>
+
+  <div class="special-numbers">
+    <p class="title">
+      Pick
+      {{ $ctrl.activeLottery.special.picks }}
+      {{ $ctrl.activeLottery.special.alias }}
+      {{ $ctrl.activeLottery.special.picks > 1 ? 'numbers' : 'number' }}:
+    </p>
+    <span ng-repeat="choice in $ctrl.specialChoices">
+      <label>{{ choice.number }}</label>
+      <input
+        type="checkbox"
+        ng-model="choice.checked"
+        ng-disabled="!choice.checked && ($ctrl.countCheckedSpecial() === $ctrl.activeLottery.special.picks)"
+        >
+    </span>
+  </div>
+
+  <div class="buttons">
+    <button
+      ng-click="$ctrl.addLine();"
+      >
+      Add Line
+    </button>
+    <button>
+      Cancel
+    </button>
+  </div>
+</div>

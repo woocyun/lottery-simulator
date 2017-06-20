@@ -17,10 +17,10 @@
     </lottery-list>
   </nav>
   <main>
-    <button
-      ng-click="$ctrl.openPlayslip()"
+    <ticket
+      active-lottery="$ctrl.activeLottery"
+      on-line-add="$ctrl.lineAdded($event)"
       >
-      Edit Playslip
-    </button>
+    </ticket>
   </main>
 </div>

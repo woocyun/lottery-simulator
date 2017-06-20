@@ -7,7 +7,9 @@ import SimulatorPageComponent from './containers/simulator-page/simulator-page.c
 import LotteryHeaderComponent from './components/lottery-header/lottery-header.component';
 import LotteryListComponent from './components/lottery-list/lottery-list.component';
 import LotteryItemComponent from './components/lottery-item/lottery-item.component';
-import PlayslipComponent from './components/playslip/playslip.component';
+import TicketComponent from './components/ticket/ticket.component';
+import ToggleableLineFormComponent from './components/toggleable-line-form/toggleable-line-form.component';
+import LineFormComponent from './components/line-form/line-form.component';
 
 const SimulatorModule = angular
   .module('components.simulator', [
@@ -26,6 +28,8 @@ const SimulatorModule = angular
   .component('lotteryHeader', LotteryHeaderComponent)
   .component('lotteryList', LotteryListComponent)
   .component('lotteryItem', LotteryItemComponent)
-  .component('playslip', PlayslipComponent);
+  .component('toggleableLineForm', ToggleableLineFormComponent)
+  .component('lineForm', LineFormComponent)
+  .component('ticket', TicketComponent);
 
 export default SimulatorModule;
