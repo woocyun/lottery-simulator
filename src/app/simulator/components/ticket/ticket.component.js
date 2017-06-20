@@ -3,7 +3,8 @@ import template from './ticket.html';
 const TicketComponent = {
   bindings: {
     activeLottery: '<',
-    onLineAdd: '&'
+    onLineAdd: '&',
+    picks: '<'
   },
   templateUrl: template,
   controller: class TicketController {

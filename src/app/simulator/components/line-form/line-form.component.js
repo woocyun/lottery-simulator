@@ -46,6 +46,8 @@ const LineFormComponent = {
           specialChoices: this.specialChoices
         }
       });
+
+      this.onFormClose();
     }
   }
 };

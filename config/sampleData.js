@@ -1,7 +1,12 @@
+import UtilService from '../src/app/simulator/shared/utilities/util';
+const generateUUID = new UtilService().generateUUID;
+
 import {
   addLottery,
   selectLottery
 } from '../src/app/simulator/shared/lotteries/lotteries.actions';
+
+import { addPick } from '../src/app/simulator/shared/picks/picks.actions';
 
 export /*@ngInject*/ function createSampleData($ngRedux) {
   const megaMillions = JSON.parse(`
@@ -153,8 +158,15 @@ export /*@ngInject*/ function createSampleData($ngRedux) {
     powerBall
   ];
 
+  const picks = [{
+    common: [1, 2, 3, 4, 5],
+    special: [1],
+    id: generateUUID()
+  }];
+
   [
     ...lotteries.map((lottery) => addLottery(lottery)),
-    selectLottery(megaMillions)
+    selectLottery(megaMillions),
+    ...picks.map((pick) => addPick(pick)),
   ].map((a) => $ngRedux.dispatch(a));
 }
