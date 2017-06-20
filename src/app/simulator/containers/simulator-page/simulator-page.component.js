@@ -1,18 +1,23 @@
 import template from './simulator-page.html';
+
 import {
   getAllLotteries,
   getCurrentLottery
 } from '../../shared/lotteries/lotteries.selectors';
 import { selectLottery } from '../../shared/lotteries/lotteries.actions';
 
+import { getAllPicks } from '../../shared/picks/picks.selectors';
+import { addPick } from '../../shared/picks/picks.actions';
+
 const SimulatorPageComponent = {
   bindings: {},
   templateUrl: template,
   controller: class SimulatorPageController {
     /* @ngInject */
-    constructor($ngRedux, $uibModal) {
+    constructor($ngRedux, $uibModal, UtilService) {
       this.$ngRedux = $ngRedux;
       this.$uibModal = $uibModal;
+      this.UtilService = UtilService;
       this.unsubscribe = $ngRedux.connect(this.mapStateToThis, {})(this);
     }
 
@@ -23,7 +28,8 @@ const SimulatorPageComponent = {
     mapStateToThis(state) {
       return {
         lotteries: getAllLotteries(state),
-        activeLottery: getCurrentLottery(state)
+        activeLottery: getCurrentLottery(state),
+        picks: getAllPicks(state)
       };
     }
 
@@ -31,11 +37,15 @@ const SimulatorPageComponent = {
       this.$ngRedux.dispatch(selectLottery(lottery));
     }
 
-    lineAdded(picks) {
-      const commonPicks = extractNumbersFromChoices(picks.commonChoices);
-      const specialPicks = extractNumbersFromChoices(picks.specialChoices);
+    lineAdded({ commonChoices, specialChoices }) {
+      const common = extractNumbersFromChoices(commonChoices);
+      const special = extractNumbersFromChoices(specialChoices);
 
-      console.log(commonPicks, specialPicks);
+      this.$ngRedux.dispatch(addPick({
+        common,
+        special,
+        id: this.UtilService.generateUUID()
+      }));
 
       function extractNumbersFromChoices(choices) {
         return choices

@@ -18,7 +18,6 @@ const RootModule = angular
 if (process.env.NODE_ENV === 'development') {
   RootModule
     .config(/*@ngInject*/ ($ngReduxProvider) => {
-      $ngReduxProvider.createStoreWith(rootReducer, []);
       $ngReduxProvider.createStoreWith(rootReducer, [ createLogger() ], [ DevTools.instrument() ]);
     })
     .run(runDevTools)
