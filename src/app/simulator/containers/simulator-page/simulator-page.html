@@ -17,6 +17,9 @@
     </lottery-list>
   </nav>
   <main>
+    <controls
+      on-simulator-run="$ctrl.simulatorRun()">
+    </controls>
     <ticket
       active-lottery="$ctrl.activeLottery"
       on-line-add="$ctrl.lineAdded($event)"

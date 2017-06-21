@@ -4,6 +4,7 @@ import uiBootstrap from 'angular-ui-bootstrap';
 
 import UtilService from './shared/utilities/util';
 import PrependZeroFilter from './shared/utilities/prependZero';
+import Drawing from './shared/drawing/drawing.factory';
 
 import SimulatorPageComponent from './containers/simulator-page/simulator-page.component';
 import LotteryHeaderComponent from './components/lottery-header/lottery-header.component';
@@ -14,6 +15,7 @@ import LineListComponent from './components/line-list/line-list.component';
 import LineItemComponent from './components/line-item/line-item.component';
 import ToggleableLineFormComponent from './components/toggleable-line-form/toggleable-line-form.component';
 import LineFormComponent from './components/line-form/line-form.component';
+import ControlsComponent from './components/controls/controls.component';
 
 const SimulatorModule = angular
   .module('components.simulator', [
@@ -29,6 +31,7 @@ const SimulatorModule = angular
   })
   .service('UtilService', UtilService)
   .filter('prependZero', PrependZeroFilter)
+  .factory('Drawing', Drawing)
   .component('simulatorPage', SimulatorPageComponent)
   .component('lotteryHeader', LotteryHeaderComponent)
   .component('lotteryList', LotteryListComponent)
@@ -37,6 +40,7 @@ const SimulatorModule = angular
   .component('lineForm', LineFormComponent)
   .component('ticket', TicketComponent)
   .component('lineList', LineListComponent)
-  .component('lineItem', LineItemComponent);
+  .component('lineItem', LineItemComponent)
+  .component('controls', ControlsComponent);
 
 export default SimulatorModule;

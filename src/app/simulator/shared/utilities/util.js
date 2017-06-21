@@ -24,6 +24,21 @@ class UtilService {
 
     return uuid;
   }
+
+  draw(picks, qty) {
+    const pool = this.getArrayOfConsecutiveNumbers(qty);
+    const drawn = [];
+
+    let i = pool.length;
+    const stop = i - picks;
+
+    while (i > stop) {
+      drawn.push(pool.splice(Math.floor(Math.random() * i), 1)[0]);
+      i--;
+    }
+
+    return drawn.sort();
+  }
 }
 
 export default UtilService;

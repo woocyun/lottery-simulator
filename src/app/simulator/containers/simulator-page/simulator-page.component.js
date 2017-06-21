@@ -14,9 +14,10 @@ const SimulatorPageComponent = {
   templateUrl: template,
   controller: class SimulatorPageController {
     /* @ngInject */
-    constructor($ngRedux, $uibModal, UtilService) {
+    constructor($ngRedux, $uibModal, Drawing, UtilService) {
       this.$ngRedux = $ngRedux;
       this.$uibModal = $uibModal;
+      this.Drawing = Drawing;
       this.UtilService = UtilService;
       this.unsubscribe = $ngRedux.connect(this.mapStateToThis, {})(this);
     }
@@ -52,6 +53,12 @@ const SimulatorPageComponent = {
           .filter(choice => choice.checked)
           .map(choice => choice.number);
       }
+    }
+
+    simulatorRun() {
+      const drawing = Object.create(this.Drawing).init(this.activeLottery);
+      drawing.draw();
+      console.log(drawing);
     }
   }
 };
