@@ -159,8 +159,34 @@ export /*@ngInject*/ function createSampleData($ngRedux) {
   ];
 
   const picks = [{
-    common: [1, 2, 3, 4, 5],
-    special: [1],
+    common: [
+      {
+        int: 1,
+        drawn: false
+      },
+      {
+        int: 2,
+        drawn: false
+      },
+      {
+        int: 3,
+        drawn: false
+      },
+      {
+        int: 4,
+        drawn: false
+      },
+      {
+        int: 5,
+        drawn: false
+      }
+    ],
+    special: [
+      {
+        int: 1,
+        drawn: false
+      }
+    ],
     id: generateUUID()
   }];
 

@@ -51,7 +51,7 @@ const SimulatorPageComponent = {
       function extractNumbersFromChoices(choices) {
         return choices
           .filter(choice => choice.checked)
-          .map(choice => choice.number);
+          .map(choice => ({ int: choice.number, drawn: false }));
       }
     }
 
