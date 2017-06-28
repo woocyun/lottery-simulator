@@ -4,7 +4,6 @@ import uiBootstrap from 'angular-ui-bootstrap';
 
 import UtilService from './shared/utilities/util';
 import PrependZeroFilter from './shared/utilities/prependZero';
-import Drawing from './shared/drawing/drawing.factory';
 
 import SimulatorPageComponent from './containers/simulator-page/simulator-page.component';
 import LotteryHeaderComponent from './components/lottery-header/lottery-header.component';
@@ -34,7 +33,6 @@ const SimulatorModule = angular
   })
   .service('UtilService', UtilService)
   .filter('prependZero', PrependZeroFilter)
-  .factory('Drawing', Drawing)
   .component('simulatorPage', SimulatorPageComponent)
   .component('lotteryHeader', LotteryHeaderComponent)
   .component('lotteryList', LotteryListComponent)

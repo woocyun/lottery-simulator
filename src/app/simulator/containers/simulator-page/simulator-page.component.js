@@ -14,10 +14,9 @@ const SimulatorPageComponent = {
   templateUrl: template,
   controller: class SimulatorPageController {
     /* @ngInject */
-    constructor($ngRedux, $uibModal, Drawing, UtilService) {
+    constructor($ngRedux, $uibModal, UtilService) {
       this.$ngRedux = $ngRedux;
       this.$uibModal = $uibModal;
-      this.Drawing = Drawing;
       this.UtilService = UtilService;
       this.unsubscribe = $ngRedux.connect(this.mapStateToThis, {})(this);
     }
@@ -56,9 +55,10 @@ const SimulatorPageComponent = {
     }
 
     simulatorRun() {
-      const drawing = Object.create(this.Drawing).init(this.activeLottery);
-      drawing.draw();
-      console.log(drawing);
+      const drawing = {
+        common: this.UtilService.draw(this.activeLottery.common.picks, this.activeLottery.common.qty),
+        special: this.UtilService.draw(this.activeLottery.special.picks, this.activeLottery.special.qty)
+      };
     }
   }
 };
