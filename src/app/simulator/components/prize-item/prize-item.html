@@ -1,0 +1,20 @@
+<div class="prize-item">
+  <span class="col col-sm">
+    <input type="checkbox">
+  </span>
+  <span class="col col-md">
+    {{ $ctrl.prize.common }} + {{ $ctrl.prize.special }}
+  </span>
+  <span class="col col-lg">
+    {{ $ctrl.prize.prize | currency : '$' : 0 }}
+  </span>
+  <span class="col col-lg">
+    1 in {{ $ctrl.prize.chances | number }}
+  </span>
+  <span class="col col-md">
+    100
+  </span>
+  <span class="col col-lg">
+    1 in 1050000000
+  </span>
+</div>

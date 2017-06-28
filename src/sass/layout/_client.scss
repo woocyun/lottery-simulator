@@ -56,3 +56,17 @@ main {
     content: '';
   }
 }
+
+.col {
+  display: inline-block;
+  text-align: center;
+  &-sm {
+    width: 50px;
+  }
+  &-md {
+    width: 100px;
+  }
+  &-lg {
+    width: 200px;
+  }
+}

@@ -1,0 +1,13 @@
+<div class="prize-list">
+  <span class="heading col col-sm">Stop?</span>
+  <span class="heading col col-md">Match</span>
+  <span class="heading col col-lg">Prize</span>
+  <span class="heading col col-lg">Odds</span>
+  <span class="heading col col-md">Winning Tickets</span>
+  <span class="heading col col-lg">Win Frequency</span>
+  <prize-item
+    ng-repeat="prize in $ctrl.prizes"
+    prize="prize"
+    >
+  </prize-item>
+</div>

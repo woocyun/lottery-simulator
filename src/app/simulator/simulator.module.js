@@ -16,6 +16,9 @@ import LineItemComponent from './components/line-item/line-item.component';
 import ToggleableLineFormComponent from './components/toggleable-line-form/toggleable-line-form.component';
 import LineFormComponent from './components/line-form/line-form.component';
 import ControlsComponent from './components/controls/controls.component';
+import ResultsComponent from './components/results/results.component';
+import PrizeListComponent from './components/prize-list/prize-list.component';
+import PrizeItemComponent from './components/prize-item/prize-item.component';
 
 const SimulatorModule = angular
   .module('components.simulator', [
@@ -41,6 +44,9 @@ const SimulatorModule = angular
   .component('ticket', TicketComponent)
   .component('lineList', LineListComponent)
   .component('lineItem', LineItemComponent)
-  .component('controls', ControlsComponent);
+  .component('controls', ControlsComponent)
+  .component('results', ResultsComponent)
+  .component('prizeList', PrizeListComponent)
+  .component('prizeItem', PrizeItemComponent);
 
 export default SimulatorModule;
