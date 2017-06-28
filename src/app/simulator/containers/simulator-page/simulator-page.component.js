@@ -55,10 +55,14 @@ const SimulatorPageComponent = {
     }
 
     simulatorRun() {
-      const drawing = {
-        common: this.UtilService.draw(this.activeLottery.common.picks, this.activeLottery.common.qty),
-        special: this.UtilService.draw(this.activeLottery.special.picks, this.activeLottery.special.qty)
+      this.drawing = {
+        common: this.UtilService.draw(this.activeLottery.common.picks, this.activeLottery.common.qty).sort(numberSort),
+        special: this.UtilService.draw(this.activeLottery.special.picks, this.activeLottery.special.qty).sort(numberSort)
       };
+
+      function numberSort(a, b) {
+        return a - b;
+      }
     }
   }
 };

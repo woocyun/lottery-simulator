@@ -20,6 +20,20 @@
     <controls
       on-simulator-run="$ctrl.simulatorRun()">
     </controls>
+    <p style="font-size: 24px; padding-left: 20px;">
+      <span
+        style="margin-right: 8px;"
+        ng-repeat="number in $ctrl.drawing.common"
+        >
+        {{ number }}
+      </span>
+      <span
+        style="margin-left: 30px;"
+        ng-repeat="number in $ctrl.drawing.special"
+        >
+        {{ number }}
+      </span>
+    </p>
     <ticket
       active-lottery="$ctrl.activeLottery"
       on-line-add="$ctrl.lineAdded($event)"
@@ -27,6 +41,7 @@
       >
     </ticket>
     <results
+      drawing="$ctrl.drawing"
       prizes="$ctrl.activeLottery.prizes"
       >
     </results>
