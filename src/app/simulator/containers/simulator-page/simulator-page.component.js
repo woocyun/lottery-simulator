@@ -26,6 +26,7 @@ const SimulatorPageComponent = {
     }
 
     $onInit() {
+      this.numberOfDraws = 0;
       this.generatePools();
     }
 
@@ -40,6 +41,10 @@ const SimulatorPageComponent = {
     generatePools() {
       this.commonPool = this.UtilService.getArrayOfConsecutiveNumbers(this.activeLottery.common.qty);
       this.specialPool = this.UtilService.getArrayOfConsecutiveNumbers(this.activeLottery.special.qty);
+    }
+
+    incrementNumberOfDraws() {
+      this.numberOfDraws++;
     }
 
     lotterySelected(lottery) {
@@ -65,9 +70,22 @@ const SimulatorPageComponent = {
 
     simulatorRun() {
       this.drawing = {
-        common: this.UtilService.draw(this.activeLottery.common.picks, this.activeLottery.common.qty).sort(numberSort),
-        special: this.UtilService.draw(this.activeLottery.special.picks, this.activeLottery.special.qty).sort(numberSort)
+        common: this.UtilService
+          .draw(this.activeLottery.common.picks, this.commonPool)
+          .sort(numberSort),
+        special: this.UtilService
+          .draw(this.activeLottery.special.picks, this.specialPool)
+          .sort(numberSort)
       };
+
+      this.matches = this.picks.map(pick => {
+        return {
+          common: this.UtilService.findNumberOfMatches(this.drawing.common, pick.common),
+          special: this.UtilService.findNumberOfMatches(this.drawing.special, pick.special)
+        };
+      });
+
+      this.incrementNumberOfDraws();
 
       function numberSort(a, b) {
         return a - b;

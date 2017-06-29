@@ -39,6 +39,12 @@ class UtilService {
 
     return drawn.sort();
   }
+
+  findNumberOfMatches(a, b) {
+    return a
+      .filter(val => b.some(_val => val === _val))
+      .length;
+  }
 }
 
 export default UtilService;
