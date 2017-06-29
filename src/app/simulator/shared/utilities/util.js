@@ -25,9 +25,9 @@ class UtilService {
     return uuid;
   }
 
-  draw(picks, qty) {
-    const pool = this.getArrayOfConsecutiveNumbers(qty);
+  draw(picks, pool) {
     const drawn = [];
+    pool = pool.slice();
 
     let i = pool.length;
     const stop = i - picks;

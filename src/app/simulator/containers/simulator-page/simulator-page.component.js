@@ -25,12 +25,21 @@ const SimulatorPageComponent = {
       this.unsubscribe();
     }
 
+    $onInit() {
+      this.generatePools();
+    }
+
     mapStateToThis(state) {
       return {
         lotteries: getAllLotteries(state),
         activeLottery: getCurrentLottery(state),
         picks: getAllPicks(state)
       };
+    }
+
+    generatePools() {
+      this.commonPool = this.UtilService.getArrayOfConsecutiveNumbers(this.activeLottery.common.qty);
+      this.specialPool = this.UtilService.getArrayOfConsecutiveNumbers(this.activeLottery.special.qty);
     }
 
     lotterySelected(lottery) {
