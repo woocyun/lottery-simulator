@@ -3,14 +3,14 @@
     <span
       class="number"
       ng-repeat="number in $ctrl.line.common">
-      {{ number.int | prependZero }}
+      {{ number | prependZero }}
     </span>
   </span>
   <span class="special">
     <span
       class="number"
       ng-repeat="number in $ctrl.line.special">
-      {{ number.int | prependZero }}
+      {{ number | prependZero }}
     </span>
   </span>
 </tr>
