@@ -3,8 +3,6 @@ import template from './line-form.html';
 const LineFormComponent = {
   bindings: {
     activeLottery: '<',
-    commonChoices: '<',
-    specialChoices: '<',
     onFormClose: '&',
     onFormOpen: '&',
     onLineAdd: '&'
@@ -12,13 +10,26 @@ const LineFormComponent = {
   templateUrl: template,
   controller: class LineFormController {
     /*@ngInject*/
-    constructor($window) {
+    constructor($window, UtilService) {
       this.$window = $window;
+      this.UtilService = UtilService;
     }
 
     $onInit() {
-      this.commonChoices = angular.copy(this.commonChoices, []);
-      this.specialChoices = angular.copy(this.specialChoices, []);
+      this.commonChoices = this.UtilService
+        .getArrayOfConsecutiveNumbers(this.activeLottery.common.qty)
+        .map(mapNumberToChoice);
+
+      this.specialChoices = this.UtilService
+        .getArrayOfConsecutiveNumbers(this.activeLottery.special.qty)
+        .map(mapNumberToChoice);
+
+      function mapNumberToChoice(n) {
+        return {
+          checked: false,
+          number: n
+        };
+      }
     }
 
     countCheckedCommon() {

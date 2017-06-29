@@ -3,8 +3,6 @@ import template from './toggleable-line-form.html';
 const ToggleableLineFormComponent = {
   bindings: {
     activeLottery: '<',
-    commonChoices: '<',
-    specialChoices: '<',
     onLineAdd: '&'
   },
   templateUrl: template,
