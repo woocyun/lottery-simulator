@@ -12,9 +12,9 @@
     1 in {{ $ctrl.prize.chances | number }}
   </span>
   <span class="col col-md">
-    100
+    {{ $ctrl.prize.won }}
   </span>
   <span class="col col-lg">
-    1 in 1050000000
+    {{ $ctrl.prize.won ? '1 in something' : 0 }}
   </span>
 </div>
