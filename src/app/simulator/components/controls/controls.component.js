@@ -4,6 +4,7 @@ const ControlsComponent = {
   bindings: {
     onSimulatorRun: '&',
     onSimulatorStart: '&',
+    onSimulatorStop: '&',
   },
   templateUrl: template,
   controller: class ControlsController {

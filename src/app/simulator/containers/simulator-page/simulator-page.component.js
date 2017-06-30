@@ -82,10 +82,6 @@ const SimulatorPageComponent = {
       }
     }
 
-    startSimulator() {
-      runningInterval = this.$interval(this.runSimulator.bind(this), 1);
-    }
-
     runSimulator() {
       this.drawing = {
         common: this.UtilService
@@ -103,18 +99,36 @@ const SimulatorPageComponent = {
         };
       });
 
+      let stop;
+
       this.matches.forEach(match => {
         const prizeMatch = this.prizes.find(prize => prize.common === match.common && prize.special === match.special);
 
         if (prizeMatch) {
           prizeMatch.won++;
+          if (prizeMatch.stop) {
+            stop = true;
+          }
         }
       });
 
       this.incrementNumberOfDraws();
 
+      if (stop) this.stopSimulator();
+      
       function numberSort(a, b) {
         return a - b;
+      }
+    }
+
+    startSimulator() {
+      runningInterval = this.$interval(this.runSimulator.bind(this), 1);
+    }
+
+    stopSimulator() {
+      if (runningInterval) {
+        this.$interval.cancel(runningInterval);
+        runningInterval = undefined;
       }
     }
   }
