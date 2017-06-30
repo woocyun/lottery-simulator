@@ -3,8 +3,7 @@ import template from './results.html';
 const ResultsComponent = {
   bindings: {
     numberOfDraws: '<',
-    prizes: '<',
-    matches: '<'
+    prizes: '<'
   },
   templateUrl: template,
   controller: class ResultsController {
@@ -13,13 +12,8 @@ const ResultsComponent = {
 
     }
 
-    $onChanges(changes) {
-      if (changes.matches && Array.isArray(this.matches)) {
-        this.matches.forEach(match => {
-          const prizeWon = this.prizes.find(prize => match.common === prize.common && match.special === prize.special);
-          console.log(prizeWon);
-        });
-      }
+    $onChanges() {
+
     }
 
     $onInit() {

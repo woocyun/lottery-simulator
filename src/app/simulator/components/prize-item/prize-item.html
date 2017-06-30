@@ -15,6 +15,6 @@
     {{ $ctrl.prize.won }}
   </span>
   <span class="col col-lg">
-    {{ $ctrl.prize.won ? '1 in something' : 0 }}
+    {{ $ctrl.prize.won ? '1 in ' + ($ctrl.numberOfDraws / $ctrl.prize.won) : 0 }}
   </span>
 </div>

@@ -96,6 +96,14 @@ const SimulatorPageComponent = {
         };
       });
 
+      this.matches.forEach(match => {
+        const prizeMatch = this.prizes.find(prize => prize.common === match.common && prize.special === match.special);
+
+        if (prizeMatch) {
+          prizeMatch.won++;
+        }
+      });
+
       this.incrementNumberOfDraws();
 
       function numberSort(a, b) {

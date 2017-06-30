@@ -2,6 +2,7 @@ import template from './prize-list.html';
 
 const PrizeListComponent = {
   bindings: {
+    numberOfDraws: '<',
     prizes: '<'
   },
   templateUrl: template,
@@ -11,7 +12,7 @@ const PrizeListComponent = {
     }
 
     $onChanges(changes) {
-      
+
     }
   }
 };
