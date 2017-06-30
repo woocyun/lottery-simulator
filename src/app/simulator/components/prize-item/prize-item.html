@@ -17,7 +17,7 @@
   <span class="col col-lg">
     <span ng-if="!$ctrl.prize.won">0</span>
     <span ng-if="$ctrl.prize.won">
-      1 in {{ ($ctrl.numberOfDraws / $ctrl.prize.won) | number: 0 }}
+      1 in {{ ($ctrl.numberOfPlays / $ctrl.prize.won) | number: 0 }}
     </span>
   </span>
 </div>

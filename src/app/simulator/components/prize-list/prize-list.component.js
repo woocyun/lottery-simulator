@@ -2,7 +2,7 @@ import template from './prize-list.html';
 
 const PrizeListComponent = {
   bindings: {
-    numberOfDraws: '<',
+    numberOfPlays: '<',
     prizes: '<'
   },
   templateUrl: template,

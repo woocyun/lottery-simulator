@@ -2,7 +2,7 @@ import template from './results.html';
 
 const ResultsComponent = {
   bindings: {
-    numberOfDraws: '<',
+    numberOfPlays: '<',
     prizes: '<'
   },
   templateUrl: template,

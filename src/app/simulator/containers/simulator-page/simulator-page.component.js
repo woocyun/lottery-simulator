@@ -30,6 +30,7 @@ const SimulatorPageComponent = {
 
     $onInit() {
       this.numberOfDraws = 0;
+      this.numberOfPlays = 0;
       this.generatePools();
       this.initializePrizes();
     }
@@ -59,6 +60,10 @@ const SimulatorPageComponent = {
 
     incrementNumberOfDraws() {
       this.numberOfDraws++;
+    }
+
+    incrementNumberOfPlays(n) {
+      this.numberOfPlays += n;
     }
 
     lotterySelected(lottery) {
@@ -113,9 +118,10 @@ const SimulatorPageComponent = {
       });
 
       this.incrementNumberOfDraws();
+      this.incrementNumberOfPlays(this.picks.length);
 
       if (stop) this.stopSimulator();
-      
+
       function numberSort(a, b) {
         return a - b;
       }
