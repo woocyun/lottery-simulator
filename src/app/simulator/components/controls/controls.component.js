@@ -2,7 +2,8 @@ import template from './controls.html';
 
 const ControlsComponent = {
   bindings: {
-    onSimulatorRun: '&'
+    onSimulatorRun: '&',
+    onSimulatorStart: '&',
   },
   templateUrl: template,
   controller: class ControlsController {

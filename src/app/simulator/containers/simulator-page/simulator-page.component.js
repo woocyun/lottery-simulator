@@ -9,12 +9,15 @@ import { selectLottery } from '../../shared/lotteries/lotteries.actions';
 import { getAllPicks } from '../../shared/picks/picks.selectors';
 import { addPick } from '../../shared/picks/picks.actions';
 
+let runningInterval;
+
 const SimulatorPageComponent = {
   bindings: {},
   templateUrl: template,
   controller: class SimulatorPageController {
     /* @ngInject */
-    constructor($ngRedux, $uibModal, UtilService) {
+    constructor($interval, $ngRedux, $uibModal, UtilService) {
+      this.$interval = $interval;
       this.$ngRedux = $ngRedux;
       this.$uibModal = $uibModal;
       this.UtilService = UtilService;
@@ -79,7 +82,11 @@ const SimulatorPageComponent = {
       }
     }
 
-    simulatorRun() {
+    startSimulator() {
+      runningInterval = this.$interval(this.runSimulator.bind(this), 1);
+    }
+
+    runSimulator() {
       this.drawing = {
         common: this.UtilService
           .draw(this.activeLottery.common.picks, this.commonPool)

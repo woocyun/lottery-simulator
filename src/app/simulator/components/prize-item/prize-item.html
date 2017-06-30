@@ -1,6 +1,6 @@
 <div class="prize-item">
   <span class="col col-sm">
-    <input type="checkbox">
+    <input type="checkbox" ng-model="$ctrl.prize.stop">
   </span>
   <span class="col col-md">
     {{ $ctrl.prize.common }} + {{ $ctrl.prize.special }}
@@ -15,6 +15,9 @@
     {{ $ctrl.prize.won }}
   </span>
   <span class="col col-lg">
-    {{ $ctrl.prize.won ? '1 in ' + ($ctrl.numberOfDraws / $ctrl.prize.won) : 0 }}
+    <span ng-if="!$ctrl.prize.won">0</span>
+    <span ng-if="$ctrl.prize.won">
+      1 in {{ ($ctrl.numberOfDraws / $ctrl.prize.won) | number: 0 }}
+    </span>
   </span>
 </div>
