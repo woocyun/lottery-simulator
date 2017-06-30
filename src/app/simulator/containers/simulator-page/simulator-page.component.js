@@ -2,7 +2,7 @@ import template from './simulator-page.html';
 
 import {
   getAllLotteries,
-  getCurrentLottery
+  getCurrentLottery,
 } from '../../shared/lotteries/lotteries.selectors';
 import { selectLottery } from '../../shared/lotteries/lotteries.actions';
 
@@ -28,6 +28,7 @@ const SimulatorPageComponent = {
     $onInit() {
       this.numberOfDraws = 0;
       this.generatePools();
+      this.initializePrizes();
     }
 
     mapStateToThis(state) {
@@ -41,6 +42,16 @@ const SimulatorPageComponent = {
     generatePools() {
       this.commonPool = this.UtilService.getArrayOfConsecutiveNumbers(this.activeLottery.common.qty);
       this.specialPool = this.UtilService.getArrayOfConsecutiveNumbers(this.activeLottery.special.qty);
+    }
+
+    initializePrizes() {
+      this.prizes = this.activeLottery.prizes
+        .map(prize => {
+          return angular.extend({}, angular.copy(prize, {}), {
+            stop: false,
+            won: 0,
+          });
+        });
     }
 
     incrementNumberOfDraws() {
