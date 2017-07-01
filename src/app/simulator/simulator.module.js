@@ -18,6 +18,7 @@ import ControlsComponent from './components/controls/controls.component';
 import ResultsComponent from './components/results/results.component';
 import PrizeListComponent from './components/prize-list/prize-list.component';
 import PrizeItemComponent from './components/prize-item/prize-item.component';
+import StatsComponent from './components/stats/stats.component';
 
 const SimulatorModule = angular
   .module('components.simulator', [
@@ -45,6 +46,7 @@ const SimulatorModule = angular
   .component('controls', ControlsComponent)
   .component('results', ResultsComponent)
   .component('prizeList', PrizeListComponent)
-  .component('prizeItem', PrizeItemComponent);
+  .component('prizeItem', PrizeItemComponent)
+  .component('stats', StatsComponent);
 
 export default SimulatorModule;
