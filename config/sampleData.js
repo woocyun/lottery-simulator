@@ -16,6 +16,7 @@ export /*@ngInject*/ function createSampleData($ngRedux) {
         "qty": 75
       },
       "name": "Mega Millions",
+      "price": 1,
       "prizes": [
         {
           "common": 0,
@@ -88,6 +89,7 @@ export /*@ngInject*/ function createSampleData($ngRedux) {
         "qty": 69
       },
       "name": "Powerball",
+      "price": 2,
       "prizes": [
         {
           "common": 0,

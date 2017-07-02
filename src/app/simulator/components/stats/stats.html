@@ -12,23 +12,23 @@
           Profit / Loss
         </th>
         <th>
-          Return
+          Return on dollar
         </th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>
-          $1000
+          {{ $ctrl.calculateMoneySpent() | currency : '$' : 0 }}
         </td>
         <td>
-          $1000
+          {{ $ctrl.calculateMoneyWon() | currency : '$' : 0 }}
         </td>
         <td>
-          $1000
+          {{ $ctrl.calculateMoneyWon() - $ctrl.calculateMoneySpent() | currency : '$' : 0 }}
         </td>
         <td>
-          $1000
+          {{ $ctrl.calculateReturn() | currency : '$' : 2 }}
         </td>
       </tr>
     </tbody>

@@ -3,7 +3,8 @@ import template from './results.html';
 const ResultsComponent = {
   bindings: {
     numberOfPlays: '<',
-    prizes: '<'
+    prizes: '<',
+    pricePerPlay: '<',
   },
   templateUrl: template,
   controller: class ResultsController {
