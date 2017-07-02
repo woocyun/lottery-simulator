@@ -125,8 +125,8 @@ const SimulatorPageComponent = {
       }
     }
 
-    startSimulator() {
-      this.runningInterval = this.$interval(this.runSimulator.bind(this), 1);
+    startSimulator(interval) {
+      this.runningInterval = this.$interval(this.runSimulator.bind(this), interval);
     }
 
     stopSimulator() {

@@ -19,7 +19,7 @@
   <main>
     <controls
       on-simulator-run="$ctrl.runSimulator()"
-      on-simulator-start="$ctrl.startSimulator()"
+      on-simulator-start="$ctrl.startSimulator($event)"
       on-simulator-stop="$ctrl.stopSimulator()"
       running="$ctrl.runningInterval"
       >

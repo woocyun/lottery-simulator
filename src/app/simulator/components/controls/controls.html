@@ -6,7 +6,7 @@
     Draw Once
   </button>
   <button
-    ng-click="$ctrl.onSimulatorStart()"
+    ng-click="$ctrl.startSimulator()"
     ng-if="!$ctrl.running"
     >
     Run Simulator
@@ -17,4 +17,16 @@
     >
     Stop Simulator
   </button>
+  <label>
+    <input type="radio" ng-model="$ctrl.speed" value="max">
+    Max
+  </label>
+  <label>
+    <input type="radio" ng-model="$ctrl.speed" value="fast">
+    Fast
+  </label>
+  <label>
+    <input type="radio" ng-model="$ctrl.speed" value="slow">
+    Slow
+  </label>
 </div>
