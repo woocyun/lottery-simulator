@@ -5,6 +5,7 @@ const ControlsComponent = {
     onSimulatorRun: '&',
     onSimulatorStart: '&',
     onSimulatorStop: '&',
+    running: '<',
   },
   templateUrl: template,
   controller: class ControlsController {

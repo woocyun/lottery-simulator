@@ -9,8 +9,6 @@ import { selectLottery } from '../../shared/lotteries/lotteries.actions';
 import { getAllPicks } from '../../shared/picks/picks.selectors';
 import { addPick } from '../../shared/picks/picks.actions';
 
-let runningInterval;
-
 const SimulatorPageComponent = {
   bindings: {},
   templateUrl: template,
@@ -128,13 +126,13 @@ const SimulatorPageComponent = {
     }
 
     startSimulator() {
-      runningInterval = this.$interval(this.runSimulator.bind(this), 1);
+      this.runningInterval = this.$interval(this.runSimulator.bind(this), 1);
     }
 
     stopSimulator() {
-      if (runningInterval) {
-        this.$interval.cancel(runningInterval);
-        runningInterval = undefined;
+      if (this.runningInterval) {
+        this.$interval.cancel(this.runningInterval);
+        this.runningInterval = undefined;
       }
     }
   }

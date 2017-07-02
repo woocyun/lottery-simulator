@@ -1,16 +1,19 @@
 <div class="controls">
   <button
     ng-click="$ctrl.onSimulatorRun()"
+    ng-disabled="$ctrl.running"
     >
     Draw Once
   </button>
   <button
     ng-click="$ctrl.onSimulatorStart()"
+    ng-if="!$ctrl.running"
     >
     Run Simulator
   </button>
   <button
     ng-click="$ctrl.onSimulatorStop()"
+    ng-if="$ctrl.running"
     >
     Stop Simulator
   </button>
